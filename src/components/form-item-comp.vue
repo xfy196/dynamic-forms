@@ -1,6 +1,6 @@
 <template>
   <template v-if="formState">
-    <el-form-item :label="formState.payload.label">
+    <el-form-item :prop="formState.payload.prop" :label="formState.payload.label">
       <template v-if="formState.type === 'input'">
         <el-input v-model="formState.payload.value" placeholder="Please input" />
       </template>
@@ -27,6 +27,7 @@
 </template>
 
 <script setup>
+
 const props = defineProps({
   formState: {}
 })
@@ -43,6 +44,5 @@ const getNext = () => {
   }
   return  props.formState.next(props.formState, acients)
 }
-
 </script>
 <style scoped lang="scss"></style>
